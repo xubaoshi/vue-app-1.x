@@ -1,0 +1,6 @@
+.idea/
+node_modules/
+project/js/react/flux/flux-example/
+project/js/react/flux/to-do-mvc/node_modules/
+project/js/vue/node_modules/
+output/
