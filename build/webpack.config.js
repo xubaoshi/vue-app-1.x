@@ -5,7 +5,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-	entry: path.resolve(__dirname,'../app/main.js'),
+	entry: [path.resolve(__dirname,'../app/main.js')],
 	output: {
 		path:path.resolve(__dirname,'../output/build'),
 		publicPath:'build/',
@@ -19,20 +19,20 @@ module.exports = {
 		loaders:[
 			// 加载vue结尾的文件
 			{
-				test:/\.vue$/,
-				loader:'vue'
+				test: /\.vue$/,
+				loader: 'vue'
 			},
 			// js代码支持es2015
 			{
-				test:/\.js$/,
-				loader:'babel?presets=es2015',
-				exclude:/no_modules/
+				test: /\.js$/,
+				loader: 'babel?presets=es2015',
+				exclude: /node_modules/
 			}
 		]
 	},
 	plugins:[
 		new HtmlWebpackPlugin({
-			file:'../main.html',
+			filename:'../main.html',
 			template:path.resolve(__dirname,'../app/main.html'),
 			inject:true
 		})

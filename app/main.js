@@ -2,9 +2,9 @@
  * Created by xubaoshi on 2016/4/9.
  */
 import Vue from 'vue'
-import App from './components/app'
+import App from './components/App.vue'
 
 new Vue({
-	el:'body',
-	component:{App}
+	el:'#main',
+	components:{App}
 })

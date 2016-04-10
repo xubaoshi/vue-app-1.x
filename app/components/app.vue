@@ -1,14 +1,21 @@
 <template>
-	<div v-for="n in 10">n + app</div>
+	<div>{{msg}}</div>
+	<div>{{msg}}</div>
+	re<div>{{msg}}</div>
+
 </template>
 
 <script>
-	export default{
-
+	export default {
+		data () {
+			return {
+				msg: 'Hello World!'
+			}
+		}
 	}
 </script>
 <style>
 	html{
-		background-color:greenyellow;
+		background-color:yellowgreen;
 	}
 </style>

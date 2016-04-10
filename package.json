@@ -4,7 +4,8 @@
   "description": "html5+vue",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --display-modules --display-chunks --config build/webpack.config.js",
+    "dev":"node ./build/dev-server.js"
   },
   "repository": {
     "type": "git",
