@@ -9,13 +9,13 @@
 	export default {
 		data () {
 			return {
-				msg: 'Hello World!'
+				msg: 'Hello World!1111111'
 			}
 		}
 	}
 </script>
 <style>
 	html{
-		background-color:yellowgreen;
+		background-color:greenyellow;
 	}
 </style>

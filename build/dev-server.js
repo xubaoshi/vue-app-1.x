@@ -27,8 +27,10 @@ var hotMiddleware = require('webpack-hot-middleware')(compiler)
 compiler.plugin('compilation',function(compilation){
 	compilation.plugin('html-webpack-plugin-after-emit',function(data,cb){
 		// 发布事件
+		console.log('xubaoshi01');
 		hotMiddleware.publish({action:'reload'})
 		cb()
+		console.log('xubaoshi02');
 	})
 })
 

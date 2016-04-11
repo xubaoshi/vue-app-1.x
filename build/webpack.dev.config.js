@@ -3,8 +3,8 @@
  */
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
-var config = require('./webpack.config');
 var webpack = require('webpack')
+var config = require('./webpack.config');
 
 // 路径
 config.output.publicPath = '/';
