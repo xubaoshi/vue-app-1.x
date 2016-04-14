@@ -5,6 +5,8 @@ var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var rootPath = path.resolve(__dirname,'../');
+
 module.exports = {
 	entry:{
 		bundle:'./src/index',
@@ -12,7 +14,7 @@ module.exports = {
 
 	},
 	output:{
-		path:path.join(__dirname,'../dist'),
+		path:path.join(rootPath,'dist'),
 		filename:'[hash:8].[name].js',
 		publicPath:'/'
 	},
@@ -32,9 +34,9 @@ module.exports = {
 		}),
 		new ExtractTextPlugin('[hash:8].style.css', { allChunks: true }),
 		new HtmlWebpackPlugin({
-			favicon:path.join(__dirname,'../src/favicon.ico'),
+			favicon:path.join(rootPath,'./src/favicon.ico'),
 			title: "vue-app",
-			template: path.join(__dirname,'../src/index.html'),  //模板文件
+			template: path.join(rootPath,'./src/index.html'),  //模板文件
 			inject:'body',
 			hash:false,    //为静态资源生成hash值
 			minify:{    //压缩HTML文件
@@ -70,7 +72,7 @@ module.exports = {
 		]
 	},
 	resolve: {
-		root: path.resolve(__dirname, '../node_modules'),
+		root: path.resolve(rootPath, './node_modules'),
 		extensions: ['','.js','.vue','.scss']
 	}
 
