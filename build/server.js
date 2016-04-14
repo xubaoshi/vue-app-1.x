@@ -7,12 +7,13 @@ var favicon = require('serve-favicon');
 
 var app = new express();
 var port = process.env.PORT || 8800;
+var rootPath = path.resolve(__dirname,'../');
 
-app.use(express.static(path.join(__dirname,'dist')));
-app.use(favicon(path.join(__dirname, 'dist', 'favicon.ico')));
+app.use(express.static(path.join(rootPath,'dist')));
+app.use(favicon(path.join(rootPath, 'dist', 'favicon.ico')));
 
 app.get("/*",function(req,res){
-	return res.sendFile(__dirname + '/dist/index.html')
+	return res.sendFile(rootPath + '/dist/index.html')
 })
 
 app.listen(port,function(err){
