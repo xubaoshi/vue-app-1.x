@@ -7,8 +7,9 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry:{
-		//vendor:['vue','vuex','vue-router'],
-		bundle:'../src/index'
+		bundle:'./src/index',
+		vendor:['vue','vuex','vue-router']
+
 	},
 	output:{
 		path:path.join(__dirname,'../dist'),
@@ -16,14 +17,19 @@ module.exports = {
 		publicPath:'/'
 	},
 	plugins:[
+		new webpack.DefinePlugin({
+			'process.env':{
+				'NODE_ENV': JSON.stringify('production')
+			}
+		}),
 		new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.optimize.UglifyJsPlugin({
 			compress:{warnings:false}
 		}),
-		//new webpack.optimize.CommonsChunkPlugin({
-		//	name:"vendor",
-		//	minChunks:Infinity
-		//}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name:"vendor",
+			minChunks:Infinity
+		}),
 		new ExtractTextPlugin('[hash:8].style.css', { allChunks: true }),
 		new HtmlWebpackPlugin({
 			favicon:path.join(__dirname,'../src/favicon.ico'),
