@@ -20,7 +20,7 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
 		new HtmlWebpackPlugin({
-			//favicon:path.join(__dirname,'../src/favicon.ico'),
+			favicon:path.join(__dirname,'../src/favicon.ico'),
 			title: "vue app",
 			template: path.join(__dirname,'../src/index.html'),
 			inject: true
@@ -56,9 +56,14 @@ module.exports = {
 			js: 'babel'
 		}
 	},
+
 	resolve: {
 		root: path.resolve(__dirname, 'node_modules'),
 		extensions: ['','.js','.vue','.scss']
+	},
+	babel: {
+		presets: ['es2015', 'stage-0'],
+		plugins: ['transform-runtime']
 	}
 }
 
