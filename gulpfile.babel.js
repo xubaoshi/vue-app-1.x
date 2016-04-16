@@ -11,6 +11,7 @@ import env from 'gulp-env'
 import gulpSequence from 'gulp-sequence'
 import nodemon from 'gulp-nodemon'
 import open from 'open'
+import proxy from 'proxy-middleware';
 
 const DEV_PORT = 5100, PROD_PROT = 8800
 
@@ -18,21 +19,22 @@ const DEV_PORT = 5100, PROD_PROT = 8800
 gulp.task('dev', cb =>{
 	let webpackConfig = require('./build/webpack.config')
 	let myConfig = Object.create(webpackConfig)
+	console.log(myConfig.output.path)
 	myConfig.entry.unshift('webpack-dev-server/client?http://localhost:' + DEV_PORT)
 	new WebpackDevServer(webpack(myConfig), {
-	noInfo: false,
-	hot: true,
-	inline: true,
-	historyApiFallback: true,
-	publicPath: myConfig.output.publicPath,
-	stats: {
-		colors: true
-	}
-}).listen(DEV_PORT, "localhost", err => {
-	if(err) throw new gutil.PluginError("webpack-dev-server", err)
-	gutil.log('[webpack-dev-server]', "==> 监听  http://localhost:" + DEV_PORT)
-open('http://localhost:' + DEV_PORT)
-});
+		noInfo: false,
+		hot: false,
+		inline: true,
+		historyApiFallback: true,
+		//publicPath: myConfig.output.publicPath,
+		stats: {
+			colors: true
+		}
+	}).listen(DEV_PORT, "localhost", err => {
+		if(err) throw new gutil.PluginError("webpack-dev-server", err)
+		gutil.log("[webpack-dev-server]", "==> 🌎  http://localhost:" + DEV_PORT)
+		open('http://localhost:' + DEV_PORT)
+	});
 })
 
 

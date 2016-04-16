@@ -60,10 +60,6 @@ module.exports = {
 	resolve: {
 		root: path.resolve(__dirname, 'node_modules'),
 		extensions: ['','.js','.vue','.scss']
-	},
-	babel: {
-		presets: ['es2015', 'stage-0'],
-		plugins: ['transform-runtime']
 	}
 }
 

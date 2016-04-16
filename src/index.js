@@ -4,7 +4,7 @@
 //https://blog.madewithlove.be/post/webpack-your-bags/
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-//import VueValidator from 'vue-validate'
+//import VueValidator from 'vue-validator'
 import { sync } from 'vuex-router-sync'
 import store from './vuex/store'
 import configRouter from './routes'
