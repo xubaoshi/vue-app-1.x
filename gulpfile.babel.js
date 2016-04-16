@@ -19,14 +19,15 @@ const DEV_PORT = 5100, PROD_PROT = 8800
 gulp.task('dev', cb =>{
 	let webpackConfig = require('./build/webpack.config')
 	let myConfig = Object.create(webpackConfig)
-	console.log(myConfig.output.path)
 	myConfig.entry.unshift('webpack-dev-server/client?http://localhost:' + DEV_PORT)
+
+	// hot功能没有实现待完善
 	new WebpackDevServer(webpack(myConfig), {
 		noInfo: false,
 		hot: false,
 		inline: true,
 		historyApiFallback: true,
-		//publicPath: myConfig.output.publicPath,
+		publicPath: myConfig.output.publicPath,
 		stats: {
 			colors: true
 		}
@@ -36,6 +37,9 @@ gulp.task('dev', cb =>{
 		open('http://localhost:' + DEV_PORT)
 	});
 })
+
+
+
 
 
 // 清空dist文件夹
