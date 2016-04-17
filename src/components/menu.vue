@@ -1,10 +1,10 @@
 <template>
 	<ul class="menu-list">
 		<li>
-			<a class="menu-item on" href="javascript:;">首页</a>
+			<a class="menu-item" :class="{'on': $route.name=='A'}" v-link="{path:'/'}" href="javascript:;">首页</a>
 		</li>
 		<li>
-			<a class="menu-item" v-link="{path:'/login'}" href="javascript:;">待办事项</a>
+			<a class="menu-item" :class="{'on': $route.name=='B'}" v-link="{path:'/login'}" href="javascript:;">待办事项</a>
 		</li>
 		<li>
 			<a class="menu-item" href="javascript:;">单据</a>
