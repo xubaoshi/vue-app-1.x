@@ -11,7 +11,6 @@ import env from 'gulp-env'
 import gulpSequence from 'gulp-sequence'
 import nodemon from 'gulp-nodemon'
 import open from 'open'
-import proxy from 'proxy-middleware';
 
 const DEV_PORT = 5100, PROD_PROT = 8800
 
