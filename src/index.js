@@ -10,6 +10,7 @@ import store from './vuex/store'
 import configRouter from './routes'
 //import filters from './utils/filters'
 import app from './components/app.vue'
+import vueTouch from 'vue-touch'
 
 // css
 import './style/css/base.css'
@@ -19,6 +20,7 @@ import './style/css/reset.css'
 Vue.use(VueRouter)
 // 引入表单校验
 //Vue.use(VueValidator)
+Vue.use(vueTouch)
 
 // 去除警告
 // 注：？？

@@ -30,7 +30,7 @@ gulp.task('dev', cb =>{
 		stats: {
 			colors: true
 		}
-	}).listen(DEV_PORT, "localhost", err => {
+	}).listen(DEV_PORT, "", err => {
 		if(err) throw new gutil.PluginError("webpack-dev-server", err)
 		gutil.log("[webpack-dev-server]", "==> 🌎  http://localhost:" + DEV_PORT)
 		open('http://localhost:' + DEV_PORT)
