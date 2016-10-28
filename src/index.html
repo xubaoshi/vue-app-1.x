@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
-	<title><%= htmlWebpackPlugin.options.title %></title>
+	<title>
+		<%= htmlWebpackPlugin.options.title %>
+	</title>
 </head>
+
 <body>
-<app></app>
+	<app></app>
+	<script>
+	// 重置 font-size
+	var domReady = false;
+	var isDomReady = function(){
+		if(domReady) return;
+		if(document && document.getElementByTagName && document.getElementById && document.body && window.screen){
+			domReady = true;
+			clearInterval(checkDomInterval);
+			var screenWidth = window.screen.width;
+			var fontSize = (screenWidth/320*20).toFixed(4) + 'px';
+			document.getElementByTagName('html')[0].style.fontSize = fontSize;
+		}
+	}
+	var checkDomInterval = setInterval(isDomReady,10);
+</script>
 </body>
+
 </html>

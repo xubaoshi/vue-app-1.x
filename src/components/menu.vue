@@ -1,16 +1,16 @@
 <template>
 	<ul class="menu-list">
 		<li>
-			<a class="menu-item" :class="{'on': $route.name=='A'}" v-link="{path:'/'}" href="javascript:;">首页</a>
+			<a class="menu-item" :class="{'on': $route.name=='A'}" v-link="{path:'/'}" href="javascript:;">全部</a>
 		</li>
 		<li>
-			<a class="menu-item" :class="{'on': $route.name=='B'}" v-link="{path:'/login'}" href="javascript:;">待办事项</a>
+			<a class="menu-item" :class="{'on': $route.name=='B'}" v-link="{path:'/login'}" href="javascript:;">精华</a>
 		</li>
 		<li>
-			<a class="menu-item" href="javascript:;">单据</a>
+			<a class="menu-item" href="javascript:;">分享</a>
 		</li>
 		<li>
-			<a class="menu-item" href="javascript:;">报表</a>
+			<a class="menu-item" href="javascript:;">问答</a>
 		</li>
 	</ul>
 </template>
