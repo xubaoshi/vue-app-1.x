@@ -10,8 +10,8 @@ export default function (router) {
 			component:require('./components/test/A.vue')
 		},
 		'/':{
-			name:'A',
-			component:require('./components/test/A.vue')
+			name:'code_all',
+			component:require('./components/cnode/all.vue')
 		},
 		'/login':{
 			name:'B',
