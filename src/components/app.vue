@@ -1,11 +1,12 @@
 <template>
-	<!--<personal-center></personal-center>-->
 	<router-view></router-view>
 	<menu></menu>
 </template>
 <script>
 	import menu from './menu.vue'
+	import store from '../vuex/store'
 	export default {
-		components:{menu}
+		components:{menu},
+		store:store
 	}
 </script>

@@ -1,24 +1,22 @@
 import * as types from '../types'
 
 const state = {
-    cnode: {
-        topics: [],
-        topic: {}
-    }
+    topics: [],
+    topic: {}
 }
 
 const mutations = {
     [types.CNODE_TOPICS](state, action) {
-        state.cnode.topics = state.cnode.topics.concat(action.data)
+        state.topics = state.topics.concat(action.data)
     },
     [types.CNODE_TOPICS_CLEAR](state, action) {
-        state.cnode.topics = []
+        state.topics = []
     },
     [types.CNODE_TOPIC](state, action) {
-        state.cnode.topics = action.data
+        state.topics = action.data
     },
     [types.CNODE_TOPIC_CLEAR](state, action) {
-        state.cnode.topic = {}
+        state.topic = {}
     }
 }
 

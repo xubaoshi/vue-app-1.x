@@ -5,6 +5,7 @@ import * as types from '../types'
  * 首页话题初始化
  */
 export const getTopics = (store, tab) => {
+    console.log('beigin action')
     store.dispatch(types.CNODE_TOPICS_CLEAR)
     store.dispatch(types.SHOW_LOADING)
     cnode.getTopics({ page: 0, tab: tab, limit: 20 }).then(response => {
