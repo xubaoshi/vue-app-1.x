@@ -11,12 +11,14 @@ import configRouter from './routes'
 import app from './components/app.vue'
 import vueTouch from 'vue-touch'
 
+
 // css
 import './style/css/base.css'
 import './style/css/reset.css'
 
 // 引入路由
 Vue.use(VueRouter)
+
 
 // 引入表单校验
 Vue.use(VueValidator)

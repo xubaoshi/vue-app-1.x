@@ -2,14 +2,17 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var Dashboard = require('webpack-dashboard');
+var DashboardPlugin = require('webpack-dashboard/plugin');
+var dashboard = new Dashboard();
 
 module.exports = {
 	devtool: 'cheap-source-map',
-	debug:true,
 	entry: [
 		'webpack/hot/only-dev-server',
 		'./src/index'
 	],
+	quiet:true,
 	output: {
 		path: process.cwd(),
 		filename: 'bundle.js',
@@ -25,7 +28,8 @@ module.exports = {
 			template: path.join(__dirname,'../src/index.html'),
 			inject: true
 		}),
-		new ExtractTextPlugin('[hash:8].style.css', { allChunks: true })
+		new ExtractTextPlugin('[hash:8].style.css', { allChunks: true }),
+		new DashboardPlugin(dashboard.setData)
 	],
 	module: {
 		loaders: [

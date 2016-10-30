@@ -22,10 +22,11 @@ gulp.task('dev', cb =>{
 
 	// hot功能没有实现待完善
 	new WebpackDevServer(webpack(myConfig), {
-		noInfo: false,
+		noInfo: true,
 		hot: false,
 		inline: true,
 		historyApiFallback: true,
+		quiet: true,
 		publicPath: myConfig.output.publicPath,
 		stats: {
 			colors: true
@@ -36,9 +37,6 @@ gulp.task('dev', cb =>{
 		open('http://localhost:' + DEV_PORT)
 	});
 })
-
-
-
 
 
 // 清空dist文件夹
