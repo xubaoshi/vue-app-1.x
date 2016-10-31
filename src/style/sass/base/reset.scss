@@ -1,12 +1,6 @@
 @charset "UTF-8";
 
 @import "./include/all";
-
-$browser-default-font-size:20px !default;
-$default-background:#f2f2f2;
-$default-red:#dc3214;
-$border-base: 1px solid #ccc;
-
 // reset
 * {
   -webkit-tap-highlight-color: transparent;
@@ -99,18 +93,4 @@ button{
 
 ::-webkit-scrollbar{
   display: none;
-}
-
-//atom
-.orange{
-  color: $fcOrange;
-}
-.red{
-  color: $fcRed;
-}
-.gray{
-  color: $fcGrayLight;
-}
-.green{
-  color: $fcGreen;
 }

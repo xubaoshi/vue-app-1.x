@@ -1,5 +1,17 @@
-@import "base.scss";
-@import "layout.scss";
+@import "./include/all";
+// 引入基础样式
+@import "base/reset.scss";
+@import "base/font.scss";
+@import "base/common.scss";
+
+// 引入布局样式
+@import "component/layout.scss";
+
+// 引入ui组件样式
+@import "ui/ui_pop.scss";
+
+// 引入业务样式
+@import "module/m_request.scss";
 
 
 [v-cloak] {
