@@ -56,7 +56,8 @@ module.exports = {
 				loader: 'babel',
 				exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/
 			},
-			{ test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap' ) },
+			{ test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css-loader?sourceMap' ) },
+			{test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass')},
 			//{ test: /\.(css|scss)$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!sass-loader?sourceMap&includePaths[]=' + path.resolve(__dirname, "./node_modules/compass-mixins/lib") ) },
 			{
 				test: /\.(jpe?g|png|gif)$/i,

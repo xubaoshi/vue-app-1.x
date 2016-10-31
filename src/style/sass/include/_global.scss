@@ -1,0 +1,194 @@
+// global variables
+// =====================================
+
+// browser support set
+// default: Chrome, Firefox, IE8+
+// alternative: IE7, IE6
+$lte7: true !default;
+$ie7: true !default;
+$ie6: true !default;
+
+
+// font family
+$ffDefault: arial, sans-serif;
+$ffYahei: arial, 'Microsoft Yahei', sans-serif;
+$ffSimsun: arial, simsun, sans-serif;
+$ffSimhei: arial, simhei, sans-serif;
+$ffCode: Monaco, Menlo, Consolas, "Courier New", monospace;
+$ffTahoma: tahoma, arial, sans-serif;
+
+// main color
+// ============================
+$mainRed: #e04b43 !default;
+$mainGreen: #229900 !default;
+$mainOrange: #ed9853 !default;
+
+
+// sub color
+// ============================
+// blue
+//$subBlue: #3692d9 !default;
+
+// green
+//$subGreen: #60bf4c !default;
+
+// yellow
+//$subYellow: #d9a22b !default;
+
+
+// font color, add prefix 'fc-'
+// ============================
+// emphasis
+$fcRed: $mainRed !default;
+$fcGreen: #199900 !default;
+$fcYellow: #cc9829 !default;
+$fcBlue: #06d !default;
+$fcOrange: #ed9853 !default;
+// gray
+$fcGrayDarker: #333 !default;
+$fcGrayDark: #4d4d4d !default;
+$fcGray: #666 !default;
+$fcGrayLight: #999 !default;
+$fcGrayLighter: #ccc !default;
+
+// text color
+$fcHead: $fcGrayDarker;
+$fcText: $fcGrayDark;
+$fcComment: $fcGrayLight;
+
+// link color
+$fcLink: $fcBlue;
+$fcLinkGray: $fcGrayDark;
+$fcLinkHover: $mainRed;
+
+// border color
+// ============================
+$bdGrayDark: #ccc !default;
+$bdGray: #d9d9d9 !default;
+$bdGrayLight: #e6e6e6 !default;
+
+$bdBlue: #c7dbeb !default;
+$bdGreen: #bed7a8 !default;
+$bdRed: #fad2cd !default;
+$bdYellow: #e8d4a8 !default;
+
+// background color
+// ============================
+// deep
+$bgRed: #fae6e6 !default;
+$bgBlue: #e6f1fa !default;
+$bgGreen: #e5fae1 !default;
+$bgYellow: #fcf3de !default;
+$bgGray: #f2f2f2 !default;
+// light
+$bgRedLight: #ffe5e6 !default;
+$bgBlueLight: #e5f4ff !default;
+$bgGreenLight: #eaffe5 !default;
+$bgYellowLight: #fff7e5 !default;
+$bgGrayLight: #fafafa !default;
+
+// ui module base cass
+// =================================
+// button
+$btnClass: btn !default;
+$btnDisabledClass: btn-disabled !default;
+$btnSize1: s !default;
+$btnSize2: m !default;
+$btnSize3: l !default;
+$btnSize4: xl !default;
+$btnSize5: xxl !default;
+
+$btnTypeDefault:      default !default;
+$btnTypePrimary:      primary  !default;
+$btnTypePrimaryLight: primary-light !default;
+$btnTypeSub:          sub  !default;
+$btnTypeSubLight:     sub-light !default;
+$btnTypeInfo:         info !default;
+$btnTypeInfoLight:    info-light !default;
+
+// icon
+$iconClass: icon !default;
+$icon2xClass: $iconClass + '-2x';
+$icon3xClass: $iconClass + '-3x';
+
+// tip
+$tipClass: tip !default;
+
+// pop
+$maskerBgColor: #000 !default;
+$popClass: pop !default;
+
+
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+$grid-columns:              12 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         20px !default;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     $screen-sm-min !default;
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+$container-tablet:             (720px + $grid-gutter-width) !default;
+//** For `$screen-sm-min` and up.
+$container-sm:                 $container-tablet !default;
+
+// Medium screen / desktop
+$container-desktop:            (940px + $grid-gutter-width) !default;
+//** For `$screen-md-min` and up.
+$container-md:                 $container-desktop !default;
+
+// Large screen / wide desktop
+$container-large-desktop:      (1140px + $grid-gutter-width) !default;
+//** For `$screen-lg-min` and up.
+$container-lg:                 $container-large-desktop !default;

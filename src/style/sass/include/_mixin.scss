@@ -1,0 +1,110 @@
+// global mixin
+// =====================================
+// require _global
+
+// import
+@import "../include/global";
+
+// opacity
+@mixin opacity($bgColor: #000, $opacityValue: .5){
+  background-color: $bgColor;
+  opacity: $opacityValue;
+  filter: alpha(opacity = $opacityValue * 100);
+}
+
+// Center-align a block level element
+@mixin center-block{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Sizing
+@mixin size($width, $height){
+  width: $width;
+  height: $height;
+}
+
+
+
+// Min height
+@mixin min-height($height){
+  min-height: $height;
+  height: auto;
+}
+
+// link
+@mixin link-style($defaultColor: $fcLink, $hoverColor: $fcLinkHover, $defaultDecoration: none, $hoverDecoration: underline){
+  text-decoration: $defaultDecoration;
+  &:link,&:visited{
+    color: $defaultColor;
+  }
+  &:hover{
+    color: $hoverColor;
+    text-decoration: $hoverDecoration;
+  }
+}
+
+// border triangle
+@mixin border-triangle($borderWidth){
+  display: inline-block;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  border-style: dashed;
+  border-color: transparent;
+  border-width: $borderWidth;
+}
+@mixin border-triangle-isoceles($borderTopWidth,$borderRightWidth,$borderBottomWidth,$borderLeftWidth){
+  display: inline-block;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  border-style: dashed;
+  border-color: transparent;
+
+  border-width: $borderTopWidth $borderRightWidth $borderBottomWidth $borderLeftWidth;
+}
+@mixin border-triangle-top($borderWidth,$borderColor){
+  @include border-triangle($borderWidth);
+  border-top: $borderWidth solid $borderColor;
+}
+@mixin border-triangle-right($borderWidth,$borderColor){
+  @include border-triangle($borderWidth);
+  border-right: $borderWidth solid $borderColor;
+}
+@mixin border-triangle-bottom($borderWidth,$borderColor){
+  @include border-triangle($borderWidth);
+  border-bottom: $borderWidth solid $borderColor;
+}
+@mixin border-triangle-left($borderWidth,$borderColor){
+  @include border-triangle($borderWidth);
+  border-left: $borderWidth solid $borderColor;
+}
+
+// clearfix
+@mixin clearfix(){
+  &:before,
+  &:after{
+    content: " ";
+    display:table;
+    height: 0;
+    visibility: hidden;
+    font-size: 0;
+  }
+  &:after{
+    clear:both;
+  }
+}
+
+// textclip
+@mixin textclip($maxWidth){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: $maxWidth;
+}
+
+
+

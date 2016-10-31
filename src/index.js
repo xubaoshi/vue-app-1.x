@@ -12,9 +12,8 @@ import app from './components/app.vue'
 import vueTouch from 'vue-touch'
 
 
-// css
-import './style/css/base.css'
-import './style/css/reset.css'
+// sass
+import './style/sass/mobile.scss'
 
 // 引入路由
 Vue.use(VueRouter)

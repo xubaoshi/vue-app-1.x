@@ -16,12 +16,12 @@
 	var domReady = false;
 	var isDomReady = function(){
 		if(domReady) return;
-		if(document && document.getElementByTagName && document.getElementById && document.body && window.screen){
+		if(document && document.getElementsByTagName && document.getElementById && document.body && window.screen){
 			domReady = true;
 			clearInterval(checkDomInterval);
 			var screenWidth = window.screen.width;
-			var fontSize = (screenWidth/320*20).toFixed(4) + 'px';
-			document.getElementByTagName('html')[0].style.fontSize = fontSize;
+			var fontSize = (screenWidth/640*20).toFixed(4) + 'px';
+			document.getElementsByTagName('html')[0].style.fontSize = fontSize;
 		}
 	}
 	var checkDomInterval = setInterval(isDomReady,10);
