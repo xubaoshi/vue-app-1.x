@@ -11,7 +11,8 @@ import configRouter from './routes'
 import app from './components/app.vue'
 import vueTouch from 'vue-touch'
 
-
+// font-awesome
+import 'font-awesome/css/font-awesome.css'
 // sass
 import './style/sass/mobile.scss'
 

@@ -7,9 +7,9 @@ export default function (router) {
 	router.map({
 		'*':{
 			name:'A',
-			component:require('./components/test/A.vue')
+			component:require('./components/cnode/all.vue')
 		},
-		'/':{
+		'/:tab':{
 			name:'code_all',
 			component:require('./components/cnode/all.vue')
 		},

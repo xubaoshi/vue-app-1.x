@@ -1,6 +1,5 @@
 <template>
 	<div>
-        <label >{{topics.length}}</label>
 		<ul v-for="topic in topics">
 			<li>{{topic.id}}</li>
 		</ul>
@@ -22,8 +21,14 @@
             }
         },
         route:{
-            data({}){
-                this.getTopics()
+            data(transition){
+                var toTar = transition.to;
+                if(toTar.params && toTar.params.tab != '' &&  toTar.params.tab != 'all'){
+                    this.getTopics(toTar.params.tab)
+                }else{
+                    this.getTopics()
+                }
+                
             }
         }
     }

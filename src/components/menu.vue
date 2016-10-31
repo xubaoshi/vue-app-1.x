@@ -1,16 +1,16 @@
 <template>
 	<ul class="menu-list">
 		<li>
-			<a class="menu-item" :class="{'on': $route.name=='A'}" v-link="{path:'/'}" href="javascript:;">全部</a>
+			<a class="menu-item" :class="{'on': ($route.params == null || $route.params.tab == '' || $route.params.tab =='all')}" v-link="{path:'/all'}" href="javascript:;"><i class="fa fa-home"></i></a>
 		</li>
 		<li>
-			<a class="menu-item" :class="{'on': $route.name=='B'}" v-link="{path:'/login'}" href="javascript:;">精华</a>
+			<a class="menu-item" :class="{'on': $route.params.tab=='ask'}" v-link="{path:'/ask'}" href="javascript:;"><i class="fa fa-pencil"></i></a>
 		</li>
 		<li>
-			<a class="menu-item" href="javascript:;">分享</a>
+			<a class="menu-item" :class="{'on': $route.params.tab=='share'}" v-link="{path:'/share'}" href="javascript:;"><i class="fa fa-share-alt-square"></i></a>
 		</li>
 		<li>
-			<a class="menu-item" href="javascript:;">问答</a>
+			<a class="menu-item" :class="{'on': $route.params.tab=='good'}" v-link="{path:'/good'}" href="javascript:;"><i class="fa fa-css3"></i></a>
 		</li>
 	</ul>
 </template>
