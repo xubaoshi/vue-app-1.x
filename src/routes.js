@@ -12,10 +12,11 @@ export default function (router) {
 		'/:tab':{
 			name:'code_all',
 			component:require('./components/cnode/all.vue')
-		},
-		'/login':{
-			name:'B',
-			component:require('./components/test/B.vue')
+		}
+		,
+		'/cnode/:id':{
+			name:'cnode_show',
+			component:require('./components/cnode/show.vue')
 		}
 	})
 }

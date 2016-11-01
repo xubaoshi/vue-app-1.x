@@ -13,7 +13,7 @@ const mutations = {
         state.topics = []
     },
     [types.CNODE_TOPIC](state, action) {
-        state.topics = action.data
+        state.topic = action.data
     },
     [types.CNODE_TOPIC_CLEAR](state, action) {
         state.topic = {}

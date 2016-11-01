@@ -1,0 +1,93 @@
+// add by xubaoshi
+@import "../include/_all";
+
+// header
+// =======================================
+.header {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: px2rem(86px);
+    line-height: px2rem(86px);
+    background-color: $fcBlue;
+    color: #fff;
+    text-align: center;
+    @include clearfix();
+    .back{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: px2rem(36px)
+    }
+    a{
+        color: #fff
+    }
+    h2{
+        display: inline-block;
+        color: #fff;
+        font-size: px2rem(32px);
+        font-weight: normal;
+    }
+}
+
+// content
+// =======================================
+.content-with-menu{
+    padding: px2rem(86px) 0 px2rem(100px);
+}
+.content-no-menu{
+    padding: px2rem(86px) 0 0 0;
+}
+.go-top{
+    position:fixed;
+    right: px2rem(40px);
+    bottom: px2rem(140px);
+
+    display: block;
+    width: px2rem(100px);
+    height: px2rem(100px);
+}
+
+
+
+
+// menu
+// =======================================
+.menu-list {
+		/* 定位 */
+		position: fixed;
+		bottom: 0;
+		/*自身属性*/
+		width: 100%;
+		li {
+			/*定位*/
+			float: left;
+			/*布局*/
+			overflow: hidden;
+			/*自身属性*/
+			width: 25%;
+			height: 30px;
+			line-height: 30px;
+			/*文本属性*/
+			text-align: center;
+			background-color: #f2f2f2;
+		}
+		.menu-item {
+			/*布局*/
+			display: inline-block;
+			/*自身属性*/
+			height: 30px;
+			width: 100%;
+			/*文本属性*/
+			color: #333333
+		}
+		.menu-on {
+			/*文本属性*/
+			background-color: #dddddd;
+		}
+        .fa {
+            color:  $fcBlue
+        }
+	}

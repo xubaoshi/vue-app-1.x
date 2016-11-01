@@ -10,7 +10,11 @@ export default {
     /**
      * 话题详情
      */
-    getTopic: function (id, data) {
-        return topicResource.get(id, data)
+    getTopic: function (topicId, data) {
+        if (data != null) {
+            return topicResource.get({"topicId":topicId}, data)
+        } else {
+            return topicResource.get({"topicId":topicId})
+        }
     }
 }

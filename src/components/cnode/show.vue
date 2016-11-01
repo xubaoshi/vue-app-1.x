@@ -5,13 +5,12 @@
                 <h2>cnode</h2>
             </template>
         </v-header>
-        <div class="content-with-menu" v-show="topics && topics.length>0">
+        <div class="content-with-menu" v-show="topic && topic.id !='' ">
             <div>
-                <p class="rst-sum">共{{topics.length}}条</p>
                 <div class="row">
                     <ul class="data-lst">
-                        <li v-for="topic in topics">
-                            <a v-link="{name:'cnode_show',params:{id:topic.id}}">
+                        <li>
+                            <a v-link="{name:''}">
                                 <div class="data-hd">
                                     <h4>{{topic.title}}</h4>
                                 </div>
@@ -19,6 +18,7 @@
                                     <p class="data-vertical">作者：{{topic.author.loginname}}</p>
                                     <p class="data-vertical">发布日期：{{topic.create_at}}</p>
                                     <p class="data-vertical">访问量:{{topic.visit_count}}</p>
+                                    <p style="width:100%">{{{topic.content}}}</p>
                                 </div>
                             </a>
                         </li>
@@ -32,29 +32,22 @@
 
 <script>
     import vHeader from '../base/v_header.vue'
-    import menu from '../menu.vue'
-    import { getTopics,getTopicsMore } from '../../vuex/actions/cnode'
+    import { getTopic } from '../../vuex/actions/cnode'
     export default {
-        components:{menu,vHeader},
+        components:{vHeader},
         vuex:{
             getters:{
-                topics:({cnode}) => cnode.topics,
+                topic:({cnode}) => cnode.topic,
                 current:({route}) => route.params.type
             },
             actions:{
-                getTopics,
-                getTopicsMore
+                getTopic
             }
         },
         route:{
             data(transition){
-                var toTar = transition.to;
-                if(toTar.params && toTar.params.tab != '' &&  toTar.params.tab != 'all'){
-                    this.getTopics(toTar.params.tab)
-                }else{
-                    this.getTopics()
-                }
-                
+                var toTar = transition.to
+                this.getTopic(toTar.params.id)
             }
         }
     }

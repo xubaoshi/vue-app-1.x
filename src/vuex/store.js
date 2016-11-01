@@ -5,7 +5,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import cnode from './mutations/cnode'
 import common from './mutations/common'
-import test from './mutations/test'
 
 const debug = process.env.NODE_ENV !== 'production'
 
@@ -15,7 +14,6 @@ Vue.config.debug = debug
 export default new Vuex.Store({
 	modules: {
 		cnode,
-		common,
-		test
+		common
 	}
 })

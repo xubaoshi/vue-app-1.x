@@ -1,0 +1,60 @@
+// add by xubaoshi
+@import "./include/all";
+
+body{
+    background-color: #fff;
+}
+
+.rst-sum{
+    margin: px2rem(20px) 0 px2rem(10px);
+    padding: 0 px2rem(20px);
+    font-size: px2rem(24px);
+    color: #ccc;
+}
+
+.row{
+    position: relative;
+    margin-bottom: px2rem(20px);
+    padding: 0 px2rem(20px);
+    background-color: #fff;
+    border-top:$border-base;
+    border-bottom: $border-base;
+    &:first-child{
+        border-top: none; 
+    }
+}
+.data-lst{
+    padding: px2rem(10px) 0;
+    li{
+        padding: px2rem(15px) 0;
+        border-bottom: $border-base;
+        &:last-child{
+            padding-bottom: px2rem(5px);
+            border-bottom: none;
+        }
+        a{
+            display: block;
+        }
+    }
+    .data-hd{
+        margin-bottom: px2rem(5px);
+        font-size: px2rem(28px);
+        @include clearfix();
+        a{
+            display: block;
+        }
+        h4{
+            float: left;
+            font-weight: normal;
+        }
+    }
+
+    .data-bd{
+        @include clearfix();
+        .data-vertical{
+            margin-right: px2rem(30px);
+            color: $fcGrayLight;
+            font-size: px2rem(24px);
+        }
+    }
+}

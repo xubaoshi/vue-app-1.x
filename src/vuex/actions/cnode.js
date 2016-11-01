@@ -33,10 +33,10 @@ export const getTopicsMore = (store) => {
 /**
  * 更多话题
  */
-export const getTopic = (store, id) => {
+export const getTopic = (store, topicId) => {
     store.dispatch(types.CNODE_TOPIC_CLEAR)
     store.dispatch(types.CNODE_TOPIC_CLEAR)
-    cnode.getTopic(id).then(response => {
+    cnode.getTopic(topicId).then(response => {
         if (response) {
             store.dispatch(types.CNODE_TOPIC,response.data)
             store.dispatch(types.HIDE_LOADING)
