@@ -1,6 +1,6 @@
 <template>
 	<header class="header">
-        <i class="fa fa-arrow-left" @click="goBack" v-if="history"></i>
+        <i class="fa fa-arrow-left back" @click="goBack" v-if="history"></i>
 		<slot name="header">
 			<h2>header-title</h2>
 		</slot>

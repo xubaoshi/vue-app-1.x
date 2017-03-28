@@ -1,6 +1,6 @@
 <template>
 	<div>
-        <v-header :history="false">
+        <v-header>
             <template slot="header">
                 <h2>cnode</h2>
             </template>
@@ -18,7 +18,7 @@
                                     <p class="data-vertical">作者：{{topic.author.loginname}}</p>
                                     <p class="data-vertical">发布日期：{{topic.create_at}}</p>
                                     <p class="data-vertical">访问量:{{topic.visit_count}}</p>
-                                    <p style="width:100%">{{{topic.content}}}</p>
+                                    <p style="width:100%" class="markdown-css">{{{topic.content}}}</p>
                                 </div>
                             </a>
                         </li>
