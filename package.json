@@ -68,6 +68,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "vue-touch": "^1.1.0"
   }
 }

@@ -4,11 +4,11 @@ import * as types from '../types'
 /**
  * 首页话题初始化
  */
-export const getTopics = (store, tab) => {
-    console.log('beigin action')
+export const getTopics = (store, param) => {
+    const combinedParam = Object.assign({},param,{limit:20})
     store.dispatch(types.CNODE_TOPICS_CLEAR)
     store.dispatch(types.SHOW_LOADING)
-    cnode.getTopics({ page: 0, tab: tab, limit: 20 }).then(response => {
+    cnode.getTopics(combinedParam).then(response => {
         if (response && response.data) {
             store.dispatch(types.CNODE_TOPICS,response.data)
             store.dispatch(types.HIDE_LOADING)
@@ -19,10 +19,11 @@ export const getTopics = (store, tab) => {
 /**
  *  加载更多话题
  */
-export const getTopicsMore = (store) => {
+export const getTopicsMore = (store,param) => {
+    const combinedParam = Object.assign({},param,{limit:20})
     store.dispatch(types.SHOW_MORE_LOADING)
-    cnode.getTopics({ page: 0, tab: tab, limit: 20 }).then(response => {
-        store.dispatch(types.HIDE_LOADING)
+    cnode.getTopics(combinedParam).then(response => {
+        store.dispatch(types.HIDE_MORE_LOADING)
         if (response && response.data) {
             store.dispatch(types.CNODE_TOPICS,response.data)
             store.dispatch(types.HIDE_MORE_LOADING)
