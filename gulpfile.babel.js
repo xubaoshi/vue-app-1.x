@@ -22,11 +22,9 @@ gulp.task('dev', cb =>{
 
 	// hot功能没有实现待完善
 	new WebpackDevServer(webpack(myConfig), {
-		noInfo: true,
 		hot: false,
 		inline: true,
 		historyApiFallback: true,
-		quiet: true,
 		publicPath: myConfig.output.publicPath,
 		stats: {
 			colors: true

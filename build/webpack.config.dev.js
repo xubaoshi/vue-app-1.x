@@ -1,70 +1,104 @@
 var path = require('path')
 var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+// var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var Dashboard = require('webpack-dashboard');
-var DashboardPlugin = require('webpack-dashboard/plugin');
-var dashboard = new Dashboard();
+// var Dashboard = require('webpack-dashboard');
+// var DashboardPlugin = require('webpack-dashboard/plugin');
+// var dashboard = new Dashboard();
 
 module.exports = {
 	devtool: 'cheap-source-map',
+	context: path.resolve(__dirname, '../src'),
 	entry: [
 		'webpack/hot/only-dev-server',
-		'./src/index'
+
+		'./index.js'
 	],
-	quiet:true,
 	output: {
 		path: process.cwd(),
 		filename: 'bundle.js',
 		publicPath: '/'
 	},
 	plugins: [
-		new webpack.optimize.OccurenceOrderPlugin(),
+		// new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin(),
-		new HtmlWebpackPlugin({
-			favicon:path.join(__dirname,'../src/favicon.ico'),
-			title: "vue app",
-			template: path.join(__dirname,'../src/index.html'),
-			inject: true
-		}),
-		new ExtractTextPlugin('[hash:8].style.css', { allChunks: true }),
-		new DashboardPlugin(dashboard.setData)
+		// new webpack.NoErrorsPlugin(),
+		// new HtmlWebpackPlugin({
+		// 	favicon: path.join(__dirname, '../src/favicon.ico'),
+		// 	title: "vue app",
+		// 	template: path.join(__dirname, '../src/index.html'),
+		// 	inject: true
+		// }),
+		new ExtractTextPlugin({
+			filename: '[hash:8].style.css',
+			allChunks: true
+		})
+		// ,
+		// new DashboardPlugin(dashboard.setData)
 	],
 	module: {
-		loaders: [
-			{
+		rules: [{
 				test: /\.vue$/,
-				loader: 'vue'
+				use: [{
+					loader: 'vue-loader'
+				}],
+                exclude: /node_modules/
 			},
 			{
 				test: /\.js$/,
-				loader: 'babel',
-				exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/
+				use: [{
+					loader: 'babel-loader'
+				}]
 			},
-			{ test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap' ) },
-			{test: /\.scss$/, loader: "style!css!sass"},
-			//{ test: /\.scss$/,loader: "style!css?sourceMap!sass?sourceMap&includePaths[]=" + path.resolve(__dirname, "./node_modules/compass-mixins/lib")},
+			{
+				test: /\.css$/,
+				use: [{
+						loader: "style-loader"
+					},
+					{
+						loader: "css-loader",
+						options: {
+							sourceMap: true
+						}
+					}
+				]
+			},
+			{
+				test: /\.scss$/,
+				use: [{
+						loader: 'style-loader'
+					},
+					{
+						loader: 'css-loader'
+					},
+					{
+						loader: 'sass-loader'
+					}
+				]
+			},
 			{
 				test: /\.(jpe?g|png|gif)$/i,
-				loaders: [
-					'url?limit=10000&name=images/[hash:8].[name].[ext]',
-					'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
-				]
-			},{
+				use: [{
+					loader: 'url-loader',
+					options: {
+						limit: 10000,
+						name: 'images/[hash:8].[name].[ext]'
+					}
+				}]
+			}, {
 				test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'url?limit=10000&name=fonts/[hash:8].[name].[ext]'
-			}]
-	},
-	vue: {
-		loaders: {
-			js: 'babel'
-		}
+				use: [{
+					loader: 'url-loader',
+					options: {
+						limit: 10000,
+						name: 'fonts/[hash:8].[name].[ext]'
+					}
+				}]
+			}
+		]
 	},
 
 	resolve: {
-		root: path.resolve(__dirname, 'node_modules'),
-		extensions: ['','.js','.vue','.scss']
+		extensions: ['.js', '.vue', '.scss']
 	}
 }
-

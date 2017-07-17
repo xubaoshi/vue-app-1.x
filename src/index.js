@@ -12,9 +12,9 @@ import app from './components/app.vue'
 import vueTouch from 'vue-touch'
 
 // font-awesome
-import 'font-awesome/css/font-awesome.css'
-// sass
-import './style/sass/mobile.scss'
+// import 'font-awesome/css/font-awesome.css'
+// // sass
+// import './style/sass/mobile.scss'
 
 // 引入路由
 Vue.use(VueRouter)
