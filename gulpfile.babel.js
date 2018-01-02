@@ -12,7 +12,7 @@ import gulpSequence from 'gulp-sequence'
 import nodemon from 'gulp-nodemon'
 import open from 'open'
 
-const DEV_PORT = 5100, PROD_PROT = 8800
+const DEV_PORT = 5100, PROD_PROT = 80
 
 // 开发模式
 gulp.task('dev', cb =>{
